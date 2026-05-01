@@ -1,0 +1,11 @@
+api:
+  paths:
+    auth: "auth"
+    login: "login"
+    usuario: "usuario"
+    membro: "membro"
+    tipo: "tipo"
+    funcao: "funcao"
+    status: "status"
+  variables:
+    id: "{id}"

@@ -1,0 +1,66 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /kingdom
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+spring:
+  application:
+    name: kingdom structure
+  config:
+    import: optional:classpath:api-paths.yaml
+  jackson:
+    default-property-inclusion: non_null
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    time-zone: "GMT"
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:kingdom}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:password}
+  flyway:
+    enabled: true
+    locations:
+      - classpath:migration
+    schemas:
+      - ${DATABASE_SCHEMA:public}
+  jpa:
+    show-sql: true
+    open-in-view: false
+    generate-ddl: false
+    properties:
+      hibernate:
+        default_schema: ${DATABASE_SCHEMA:public}
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+  cloud:
+    openfeign:
+      httpclient:
+        disable-ssl-validation: true
+        hc5:
+          enabled: false
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 10000
+            logger-level: full
+          viacep:
+            url: ${VIACEP_URL:https://viacep.com.br}
+          ibge:
+            url: ${IBGE_URL:https://servicodados.ibge.gov.br}
+
+#  rabbitmq:
+#    host: ${RABBIT_HOST:localhost}
+#    port: ${RABBIT_PORT:5672}
+#    username: ${RABBIT_USERNAME:guest}
+#    password: ${RABBIT_PASSWORD:guest}
+
+security:
+  jwt:
+    secret-key: SWdvciBHb27Dp2FsdmVzIFNoaW1hdXRpIDI2IGRlIE1haW8gZGUgMTk5Mw==SWdvciBHb27Dp2FsdmVzIFNoaW1hdXRpIDI2IGRlIE1haW8gZGUgMTk5Mw==
+    expiration-time: 3600000

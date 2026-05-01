@@ -1,0 +1,23 @@
+CREATE TABLE membro (
+    id bigserial NOT NULL,
+    cpf char(11) NOT NULL,
+    email varchar(150) NOT NULL,
+    nome_completo varchar(100) NOT NULL,
+    data_nascimento date,
+    telefone varchar(11),
+    whatsapp boolean,
+    encontro boolean NOT NULL DEFAULT FALSE,
+    consolidado boolean NOT NULL DEFAULT FALSE,
+    batizado boolean NOT NULL DEFAULT FALSE,
+    ceifeiros boolean NOT NULL DEFAULT FALSE,
+    maturidade boolean NOT NULL DEFAULT FALSE,
+    ctl boolean NOT NULL DEFAULT FALSE,
+    funcao varchar(20) NOT NULL,
+    seminario_pastoral boolean NOT NULL DEFAULT FALSE,
+    ativo boolean NOT NULL DEFAULT TRUE,
+    data_cadastro timestamptz NOT NULL,
+    ultima_atualizacao timestamptz,
+    CONSTRAINT membro_pk PRIMARY KEY (id),
+    CONSTRAINT membro_cpf_uk UNIQUE (cpf),
+    CONSTRAINT membro_email_social_uk UNIQUE (email)
+);
