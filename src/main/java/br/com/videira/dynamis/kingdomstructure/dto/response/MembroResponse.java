@@ -2,6 +2,7 @@ package br.com.videira.dynamis.kingdomstructure.dto.response;
 
 import br.com.videira.dynamis.kingdomstructure.enums.FuncaoEnum;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 public record MembroResponse(
@@ -11,6 +12,7 @@ public record MembroResponse(
     String cpf,
     String email,
     String nomeCompleto,
+    LocalDate dataNascimento,
     String telefone,
     Boolean whatsapp,
     FuncaoEnum funcao,
