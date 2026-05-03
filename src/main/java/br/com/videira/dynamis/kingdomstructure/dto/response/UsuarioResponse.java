@@ -2,6 +2,7 @@ package br.com.videira.dynamis.kingdomstructure.dto.response;
 
 import br.com.videira.dynamis.kingdomstructure.enums.TipoUsuarioEnum;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 
 public record UsuarioResponse(
@@ -11,6 +12,7 @@ public record UsuarioResponse(
     String cpf,
     String email,
     String nomeCompleto,
+    LocalDate dataNascimento,
     String telefone,
     Boolean whatsapp,
     TipoUsuarioEnum tipoUsuario
