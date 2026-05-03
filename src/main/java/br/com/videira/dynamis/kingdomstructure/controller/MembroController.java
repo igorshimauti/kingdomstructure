@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -59,7 +60,12 @@ public class MembroController extends CrudController<MembroResquest, MembroRespo
     @GetMapping("${api.paths.funcao}")
     public ResponseEntity<Map<String, String>> findFuncoes() {
         var funcoes = Arrays.stream(FuncaoEnum.values())
-                .collect(Collectors.toMap(Enum::name, FuncaoEnum::getDescription));
+                .collect(Collectors.toMap(
+                        Enum::name,
+                        FuncaoEnum::getDescription,
+                        (existing, ignored) -> existing,
+                        LinkedHashMap::new
+                ));
         return ResponseEntity.ok().body(funcoes);
     }
 }
