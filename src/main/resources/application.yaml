@@ -18,9 +18,9 @@ spring:
     time-zone: "GMT"
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:kingdom}
-    username: ${DATABASE_USERNAME:postgres}
-    password: ${DATABASE_PASSWORD:password}
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/kingdom}
+    username: ${JDBC_DATABASE_USERNAME:postgres}
+    password: ${JDBC_DATABASE_PASSWORD:password}
   flyway:
     enabled: true
     locations:
@@ -28,13 +28,13 @@ spring:
     schemas:
       - ${DATABASE_SCHEMA:public}
   jpa:
-    show-sql: true
+    show-sql: false
     open-in-view: false
     generate-ddl: false
     properties:
       hibernate:
         default_schema: ${DATABASE_SCHEMA:public}
-        format_sql: true
+        format_sql: false
     hibernate:
       ddl-auto: none
   cloud:
