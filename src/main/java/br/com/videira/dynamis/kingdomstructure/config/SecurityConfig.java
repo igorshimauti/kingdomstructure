@@ -66,7 +66,8 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOriginPattern("http://localhost:4200"); // dominio origem das requests
+        config.addAllowedOriginPattern("http://localhost:4200");
+        config.addAllowedOriginPattern("https://kingdomstructure.netlify.app");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.setAllowCredentials(false);
