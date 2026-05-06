@@ -7,7 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum TipoUsuarioEnum {
 
-    ADMINISTRADOR("Administrador");
+    ADMINISTRADOR("Administrador"),
+    COMUM("Comum");
 
     private final String description;
 }
