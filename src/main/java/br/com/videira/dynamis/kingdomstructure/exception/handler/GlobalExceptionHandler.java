@@ -8,13 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler({UserEmailAlreadyExistsException.class})
+    @ExceptionHandler({UserEmailAlreadyExistsException.class, AuthorizationDeniedException.class})
     public ResponseEntity<ErrorResponse> handleBadRequest(RuntimeException ex) {
         var error = new ErrorResponse(ex.getMessage());
         return ResponseEntity.badRequest().body(error);
