@@ -17,4 +17,4 @@ CREATE TABLE usuario (
 );
 
 INSERT INTO usuario(cpf, email, nome_completo, telefone, whatsapp, tipo_usuario, senha, data_cadastro)
-VALUES( '36285117802', 'igorshimauti@gmail.com', 'Igor Gonçalves Shimauti', '11986255438', true, 'ADMINISTRADOR', '$2a$10$EhDCC8d8xkJherv/gmnYneyDpemD4fchvY4PdEVa8e/C3IrkhbLZO', CURRENT_TIMESTAMP);
+VALUES( '36285117802', 'igorshimauti@gmail.com', 'Igor Gonçalves Shimauti', '11986255438', true, 'ADMINISTRADOR', '$2a$10$bQ8lA/F98JkNRhspZw3w9umEnIu5Oq8scT1qSc6N3avKiVA7Yc686', CURRENT_TIMESTAMP);
