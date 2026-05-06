@@ -53,7 +53,8 @@ spring:
             url: ${VIACEP_URL:https://viacep.com.br}
           ibge:
             url: ${IBGE_URL:https://servicodados.ibge.gov.br}
-
+          trello:
+            url: ${TRELLO_URL:https://api.trello.com}
 #  rabbitmq:
 #    host: ${RABBIT_HOST:localhost}
 #    port: ${RABBIT_PORT:5672}
